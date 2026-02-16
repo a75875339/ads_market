@@ -1,0 +1,6 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "ansible.python.interpreterPath": "/usr/bin/python3",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+}

@@ -1,0 +1,99 @@
+metrics:
+  prefix: 'app'
+  port: 59126
+
+app:
+  name: 'api'
+  hostname: 'api'
+  api:
+    port: 6001
+    timeout: '15m'
+  worker:
+    port: 6002
+  tg_bot:
+    port: 6003
+  job_worker:
+    port: 6004
+
+api:
+  service_a:
+    endpoint: 'https://service-a.com'
+
+jwt:
+  secret: 'change-me-in-production'
+  cookie_domain: '.some.app'
+  cookie_name: 'accessToken'
+  ttl: 24h
+
+docker: true
+
+db:
+  # log_level: ['query', 'schema', 'error', 'warn', 'info', 'log', 'migration']
+  log_level: ['schema', 'error', 'warn', 'migration']
+  url: postgresql://postgres:mysecretpassword@localhost:5433/defaultdb
+  ssl: false
+
+  synchronize: false
+  migrations_run: true
+
+bot:
+  token: 'qweqwe'
+  webhook_url: 'https://example.com/webhook'
+  webhook_secret: 'secretsecret'
+  username: some_username
+  tma: find
+
+cache_redis:
+  host: 'localhost'
+  port: 6382
+  username: 'default'
+  password: ''
+  db: 0
+  tls: 'false'
+  keys:
+    deal_update_lock:
+      key: 'deal:update'
+      ttl: 10s
+    deposit_lock:
+      key: 'ton:deposit'
+      ttl: 10s
+    users:
+      key: 'users'
+      ttl: 1h
+    creative_pending:
+      key: 'creative:pending'
+      ttl: 30m
+
+# TON blockchain configuration
+ton:
+  endpoint: 'https://toncenter.com/api/v2/jsonRPC'
+  api_key: ''
+
+  encryption_key: ''
+  mnemonic: ''
+  tonapi_key: ''
+  tonapi_endpoint: 'https://tonapi.io'
+  tonapi_webhook_id: ''
+  tonapi_webhook_token: ''
+  usdt_master_address: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs'
+  min_ton_amount: '0.12'
+
+# Marketplace-specific settings
+marketplace:
+  text_max_length: 2000
+
+deal_worker:
+  cancel_interval: 5m
+  post_interval: 1m
+  complete_interval: 1m
+  payment_check_interval: 30s
+  wallet_poll_interval: 1m
+
+queues:
+  deal_topic_queue:
+    task_max_attempts: 3
+    retry_delay: 5s
+    remove_on_complete: 1000
+    remove_on_fail: 5000
+    concurrency: 5
+    

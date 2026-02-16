@@ -1,0 +1,114 @@
+services:
+  postgres:
+    restart: always
+    image: postgres:18.1
+    user: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=defaultdb
+    ports:
+      - 5433:5432
+    volumes:
+      - "postgres_data_ads:/home/postgres/pgdata/data"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d defaultdb"]
+      interval: 5s
+      timeout: 5s
+
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: pnpm start:dev:api
+    volumes:
+      - "./config/:/app/config/"
+      - "./src/:/app/src/"
+    env_file:
+      - .env.docker
+    environment:
+      - APP_NAME='api'
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - 6001:6001
+
+  worker:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: pnpm start:dev:worker
+    volumes:
+      - "./config/:/app/config/"
+      - "./src/:/app/src/"
+    env_file:
+      - .env.docker
+    environment:
+      - APP_NAME='worker'
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  job-worker:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: pnpm start:dev:job-worker
+    volumes:
+      - "./config/:/app/config/"
+      - "./src/:/app/src/"
+    env_file:
+      - .env.docker
+    environment:
+      - APP_NAME='job-worker'
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  tg-bot:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: pnpm start:dev:tg-bot
+    volumes:
+      - "./config/:/app/config/"
+      - "./src/:/app/src/"
+    env_file:
+      - .env.docker
+    environment:
+      - APP_NAME='tg-bot'
+    restart: always
+    ports:
+      - 6003:6003
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - ./redis_data/:/data
+    restart: always
+    ports:
+      - 6382:6379
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s  # How often to run the check
+      timeout: 10s   # How long to wait for the check to complete
+      retries: 5     # How many times to retry before marking as unhealthy
+
+volumes:
+  postgres_data_ads:
+    driver: local

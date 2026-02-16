@@ -1,0 +1,15 @@
+// src/db/schema.ts
+
+export * from './constants.js'
+export * from './tables/ad-formats.table.js'
+export * from './tables/campaign.table.js'
+export * from './tables/categories.table.js'
+export * from './tables/channel-managers.table.js'
+export * from './tables/channel-stats.table.js'
+export * from './tables/channels.table.js'
+export * from './tables/deal-events.table.js'
+export * from './tables/deal-messages.table.js'
+export * from './tables/deal-topics.table.js'
+export * from './tables/deal-wallet-transactions.table.js'
+export * from './tables/deals.table.js'
+export * from './tables/users.table.js'

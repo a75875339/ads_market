@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ES2022"
+    ],
+    "module": "NodeNext",
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationMap": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "target": "ES2022",
+    "sourceMap": true,
+    "paths": {},
+    "allowJs": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+  },
+  "include": ["src/**/*"],
+}

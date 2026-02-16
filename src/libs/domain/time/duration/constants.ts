@@ -1,0 +1,1 @@
+export const DURATION_FIXED_DEFAULT = 3
