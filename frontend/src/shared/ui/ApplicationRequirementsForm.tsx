@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Input } from '@telegram-tools/ui-kit';
+import { Input } from './Input';
 import { getCategories } from '../api';
 import type { Category, AdFormatType } from '../types';
 

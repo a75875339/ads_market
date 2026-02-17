@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { Button, Input, Toggle } from '@telegram-tools/ui-kit';
 import {
   getMyChannels,
   getCategories,
@@ -8,7 +7,7 @@ import {
   updateChannelVisibility,
   updateChannelCategory,
 } from '../../shared/api';
-import { PageHeader, Card, LoadingScreen, EmptyState } from '../../shared/ui';
+import { Button, Input, Toggle, PageHeader, Card, LoadingScreen, EmptyState } from '../../shared/ui';
 import { hapticFeedback } from '../../shared/lib/telegram';
 import type { Channel, Category } from '../../shared/types';
 

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Button, Input, Toggle } from '@telegram-tools/ui-kit';
 import { createCampaign } from '../../shared/api';
-import { PageHeader, ApplicationRequirementsForm } from '../../shared/ui';
+import { Button, Input, Toggle, PageHeader, ApplicationRequirementsForm } from '../../shared/ui';
 import { hapticFeedback } from '../../shared/lib/telegram';
 import type { CreateCampaignRequest } from '../../shared/types';
 import type { ApplicationRequirementsData } from '../../shared/ui';

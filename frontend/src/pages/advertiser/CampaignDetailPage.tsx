@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router';
-import { Button, Input } from '@telegram-tools/ui-kit';
 import {
   getCampaigns,
   getCampaignDeals,
@@ -8,6 +7,8 @@ import {
   updateCampaign,
 } from '../../shared/api';
 import {
+  Button,
+  Input,
   PageHeader,
   Card,
   StatusBadge,

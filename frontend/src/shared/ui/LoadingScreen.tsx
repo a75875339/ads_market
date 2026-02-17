@@ -1,4 +1,4 @@
-import { Spinner } from '@telegram-tools/ui-kit';
+import { Spinner } from './Spinner';
 
 export function LoadingScreen() {
   return (

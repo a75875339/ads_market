@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
-import { Button, Input } from '@telegram-tools/ui-kit';
 import {
   createDeal,
   getCampaigns,
@@ -8,6 +7,8 @@ import {
   getChannelAdFormats,
 } from '../../shared/api';
 import {
+  Button,
+  Input,
   PageHeader,
   Card,
   ChannelAvatar,

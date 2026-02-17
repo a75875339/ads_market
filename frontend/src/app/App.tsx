@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
-import { ThemeProvider } from '@telegram-tools/ui-kit';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { useAuthStore } from '../shared/stores';
 import { authTma, setTelegramRawData, setLoginComplete } from '../shared/api';
@@ -25,7 +24,7 @@ import { ChannelSettingsPage } from '../pages/channel/ChannelSettingsPage';
 import { ChannelManagersPage } from '../pages/channel/ChannelManagersPage';
 import { ChannelApplicationsPage } from '../pages/channel/ChannelApplicationsPage';
 
-import { LoadingScreen, ToastContainer } from '../shared/ui';
+import { LoadingScreen, ToastContainer, ThemeProvider } from '../shared/ui';
 
 function AuthErrorPage({ message }: { message: string }) {
   return (
@@ -88,23 +87,19 @@ export function App() {
 
   if (isLoading) {
     return (
-      <ThemeProvider>
         <div className="flex items-center justify-center h-screen">
           <LoadingScreen />
         </div>
-      </ThemeProvider>
     );
   }
 
   if (!isAuthenticated) {
     return (
-      <ThemeProvider>
         <AuthErrorPage message={authError || 'Unable to authorize user.'} />
-      </ThemeProvider>
     );
   }
 
-  const manifestUrl = `https://acdbb6eb0cb9front4.ngrok.app/tonconnect-manifest.json`;
+  const manifestUrl = `https://v3.test-retge.org/tonconnect-manifest.json`;
 
   return (
     <TonConnectUIProvider manifestUrl={manifestUrl}>

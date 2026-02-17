@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router';
-import { Button } from '@telegram-tools/ui-kit';
 import { getCampaigns } from '../../shared/api';
-import { PageHeader, EmptyState, Card, StatusBadge, LoadingScreen } from '../../shared/ui';
+import { Button, PageHeader, EmptyState, Card, StatusBadge, LoadingScreen } from '../../shared/ui';
 import { formatDate, formatUSD, formatAdType } from '../../shared/lib/format';
 import type { Campaign, CampaignStatus } from '../../shared/types';
 

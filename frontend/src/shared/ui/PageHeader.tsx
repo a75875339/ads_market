@@ -1,4 +1,4 @@
-import { Text } from '@telegram-tools/ui-kit';
+import { Text } from './Text';
 
 interface PageHeaderProps {
   title: string;

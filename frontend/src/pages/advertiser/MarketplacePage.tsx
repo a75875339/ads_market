@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router';
-import { Button, Input, Sheet } from '@telegram-tools/ui-kit';
 import {
   searchChannels,
   getCategories,
@@ -8,6 +7,9 @@ import {
   createDeal,
 } from '../../shared/api';
 import {
+  Button,
+  Input,
+  Sheet,
   PageHeader,
   Card,
   ChannelAvatar,

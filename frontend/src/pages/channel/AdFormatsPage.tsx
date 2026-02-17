@@ -1,12 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router';
-import { Button, Input, Toggle } from '@telegram-tools/ui-kit';
 import {
   getChannelAdFormats,
   createAdFormat,
   updateAdFormat,
 } from '../../shared/api';
-import { PageHeader, Card, EmptyState, LoadingScreen } from '../../shared/ui';
+import { Button, Input, Toggle, PageHeader, Card, EmptyState, LoadingScreen } from '../../shared/ui';
 import { formatUSD, formatAdType } from '../../shared/lib/format';
 import { hapticFeedback } from '../../shared/lib/telegram';
 import type { AdFormat, AdFormatType } from '../../shared/types';
