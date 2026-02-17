@@ -34,4 +34,13 @@ Given the scope of the task and limited resources, this item was decided not to 
 
 - The deal flow is split between the TMA (Telegram Mini App) and chat. The gap between them should be minimized, as switching between the TMA and the chat is not very convenient. Direct links (deeplinks) from the bot to the relevant frontend pages are used, but there is still room for optimization.
 
-- 
+- Simplify the flow so channels can join the marketplace without having to add even bots as administrators. This approach is also realistic and carries minimal risk for advertisers, since funds are transferred only after the ad has actually been placed.
+
+### Technical improvements
+
+- Introduce queues in many more places.
+- Add more retries for failure scenarios.
+- Metrics are already collected in general, but integrate with Grafana for visualization.
+- Admin panel.
+- Transaction fees / commission on deals.
+- Many other small improvements.
