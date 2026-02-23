@@ -588,6 +588,7 @@ function BuyAdForm({
         text={submitting ? 'Creating...' : 'Buy Ad'}
         onClick={handleSubmit}
         disabled={!selectedCampaignId || !selectedFormat || submitting}
+        className="mb-12"
       />
     </div>
   );
